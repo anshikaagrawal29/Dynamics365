@@ -1,0 +1,31 @@
+Navigate = {
+
+    HideButtonFromOtherPlaces: function(primaryControl){
+        "use strict";
+        if(primaryControl !== null && primaryControl.getControl('ActiveCases') !== null){
+        
+            return false;
+        }
+
+    },
+
+    navigateToIssueForm: function(){
+
+        //Open Issue entity form on click of Link Button
+        var entityformOptions = {};
+        entityformOptions.entityName = "basic_issue";
+        entityformOptions.formId = "8DC497E-6277-4594-8070-767D913726";
+        entityformOptions.openInNewWindow = true;
+
+        //calling openform funtion
+        Xrm.Navigation.openForm(entityformOptions).then(
+            function(success){
+                console.log(true);
+            },
+            function (error){
+                console.log(error);
+            }
+        )
+        
+    }
+}
